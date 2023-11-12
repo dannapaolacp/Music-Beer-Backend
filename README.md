@@ -1,4 +1,4 @@
-##Welcome to the official Music Beer backend repository! 🎶
+# Welcome to the official Music Beer backend repository! 🎶
 
 **Installation:**
 
@@ -10,7 +10,7 @@ _docker-compose up_
 
 Once this command is executed, the POSTGRES and PGADMIN containers will be created, so the next step is to create the database, its script is located in the Sql.sql file in the db folder.
 
-##Introduction:
+## Introduction:
 
 Music Beer was born from the identification of a solution in the musical management of a gastrobar.
 
