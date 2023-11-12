@@ -2,7 +2,7 @@
 
 **Installation:**
 
-You should have cloned the Music-Beer-Frontend project. To have the official repository, you can click [Here](https://github.com/dannapaolacp/Music-Beer-Frontend "Here")
+You must have cloned the Music-Beer-Frontend project. To have the official repository, you can click [Here](https://github.com/dannapaolacp/Music-Beer-Frontend "Here")
 
 You should have DOCKER DESKTOP installed once you have cloned the project, then run the command:
 
