@@ -1,38 +1,32 @@
-const boom = require ('@hapi/boom');
-const pool = require('../libs/postgresPool')
+const boom = require('@hapi/boom');
+const pool = require('../libs/postgresPool');
 
-
-class musicServices{
-  constructor(){
+class musicServices {
+  constructor() {
     this.pool = pool;
     this.pool.on('error', (err) => console.log(err));
   }
 
-  async deleteMusic({id}) {
+  async deleteMusic({ id }) {
     let result;
     try {
-      result = await pool.query(
-        `DELETE FROM music WHERE id = $1 ;`,
-        [id]
-      );
+      result = await pool.query(`DELETE FROM music WHERE id = $1 ;`, [id]);
     } catch (error) {
-      console.error("Error in delete user:", error);
+      console.error('Error in delete user:', error);
       throw error;
     }
 
     return result;
   }
 
-
-  async insertMusic({link, table_name }) {
+  async insertMusic({ link, table_name, name_music }) {
     try {
       await pool.query(
-        `INSERT INTO music (link,table_name) VALUES ($1, $2);`,
-        [link, table_name]
+        `INSERT INTO music (link,table_name, name_music) VALUES ($1, $2, $3);`,
+        [link, table_name, name_music],
       );
-
     } catch (error) {
-      console.error("Error in insertOne:", error);
+      console.error('Error in insertOne:', error);
       throw error; // Propagar el error para que pueda ser manejado en otro lugar si es necesario
     }
   }
@@ -40,7 +34,7 @@ class musicServices{
   async findMusic() {
     const result = await pool.query(
       `SELECT *
-      FROM music `
+      FROM music `,
     );
     return result;
   }
@@ -59,8 +53,6 @@ class musicServices{
 
   //   return result;
   // }
-
-
 }
 
 module.exports = musicServices;

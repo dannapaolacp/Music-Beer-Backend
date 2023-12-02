@@ -4,8 +4,8 @@ const service = new musicServices();
 
 const createMusic = async (req, res) => {
   try {
-    const { link, table_name } = req.body;
-    await service.insertMusic({ link, table_name }); // Pasar un objeto con los valores
+    const { link, table_name, name_music } = req.body;
+    await service.insertMusic({ link, table_name, name_music }); // Pasar un objeto con los valores
     res.status(201).json({ message: 'Music created successfully' });
   } catch (error) {
     console.error(error);
@@ -15,7 +15,7 @@ const createMusic = async (req, res) => {
 const deleteMusic = async (req, res) => {
   try {
     const { id } = req.params;
-    const result = await service.deleteMusic({id});
+    const result = await service.deleteMusic({ id });
     if (result.rowCount !== 0) {
       res.status(200).json({ message: 'Music deleted successfully' });
     }

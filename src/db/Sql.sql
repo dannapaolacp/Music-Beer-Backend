@@ -9,6 +9,7 @@ CREATE TABLE music (
 	id serial PRIMARY KEY,
 	link varchar(200) NOT NULL,
 	table_name varchar(45) NOT NULL,
+	name_music varchar(200) NOT NULL,
 	FOREIGN KEY (table_name) REFERENCES users(name)
 );
 
